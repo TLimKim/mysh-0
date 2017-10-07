@@ -8,17 +8,17 @@ void mysh_parse_command(const char* command, int *argc, char*** argv)
 {
     int i = 0;
 
-    char *temp = (char*)malloc(sizeof(char));
+    char *temp = (char*)malloc(sizeof(char)*8096);
     char *temptok;
 
     strcpy(temp, command);
 
     temptok = strtok(temp, " \n\t");
 
-    *argv = (char**)malloc(sizeof(char*)*20);
+    *argv = (char**)malloc(sizeof(char*)*8096);
 
     if (temptok == NULL) {
-	(*argv)[i] = (char*)malloc(sizeof(char)*20);
+	(*argv)[i] = (char*)malloc(sizeof(char)*8096);
 	strcpy((*argv)[i], "");
 	i++;
     } else {
