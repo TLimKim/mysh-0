@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include "commands.h"
 #include <string.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 
 int do_cd(int argc, char** argv) {
 
@@ -27,6 +29,20 @@ int do_pwd(int argc, char** argv) {
 int validate_cd_argv(int argc, char** argv) {
 
     if (!(strcmp(argv[0], "cd")) && argc == 2) {
+    /*
+	int n1 = access(argv[1], F_OK);
+	int n2 = access(argv[1], R_OK);
+
+	printf("n1: %d, n2: %d ", n1, n2);
+
+	if (n1 == 0 && n2 == 0) {
+	    printf("n1: %d, n2: %d ", n1, n2);
+	    struct stat str;
+	    stat(argv[1], &str);
+	    if (S_ISDIR(str.st_mode)) {
+		return 1;
+	    }
+	}*/
 	return 1;
     }
     else
