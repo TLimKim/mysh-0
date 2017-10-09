@@ -1,6 +1,7 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
+
 #include "commands.h"
 #include "utils.h"
 
@@ -13,7 +14,6 @@ int main()
   char** argv;
 
   while (1) {
-
     fgets(buf, 8096, stdin);
 
     mysh_parse_command(buf, &argc, &argv);
